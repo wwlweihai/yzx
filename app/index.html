@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>易装修</title>
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" href="http://at.alicdn.com/t/font_1438151576_048359.css">
+
+        <!-- build:css(.) styles/modules.css -->
+        <link rel="stylesheet" href="bower_components/ionic/css/ionic.css">
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+        <link rel="stylesheet" href="/bower_components/ionic-rating/ionic-rating.css">
+        <!-- endbuild -->
+        <!-- build:js(.) scripts/vendor.js -->
+        <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/restangular/dist/restangular.js"></script>
+        <script src="bower_components/ionic-rating/ionic-rating.js"></script>
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/common.css">
+        <link rel="stylesheet" href="modules/index/index.css">
+        <link rel="stylesheet" href="modules/index/msg/msg.css">
+        <link rel="stylesheet" href="modules/index/msgDetail/msgDetail.css">
+        <link rel="stylesheet" href="modules/style/style.css">
+        <link rel="stylesheet" href="modules/service/service.css">
+        <link rel="stylesheet" href="modules/service/team/team.css">
+        <link rel="stylesheet" href="modules/service/checkOut/checkOut.css">
+        <link rel="stylesheet" href="modules/service/superior/superior.css">
+        <link rel="stylesheet" href="modules/self/self.css">
+        <link rel="stylesheet" href="modules/self/information/information.css">
+        <link rel="stylesheet" href="modules/self/collection/collection.css">
+        <link rel="stylesheet" href="modules/self/jifen/jifen.css">
+        <link rel="stylesheet" href="modules/self/feedback/feedback.css">
+
+        <!-- endbuild -->
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/config.js"></script>
+        <script src="modules/tabs.controller.js"></script>
+        <script src="modules/index/index.config.js"></script>
+        <script src="modules/style/style.config.js"></script>
+        <script src="modules/service/service.config.js"></script>
+        <script src="modules/self/self.config.js"></script>
+        <script src="modules/self/self.controller.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <ion-nav-bar class="header-bar bar-assertive" align-title="center">
+            <ion-nav-back-button class="button-clear">
+            </ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    </body>
+</html>

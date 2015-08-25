@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+@import (reference) "../../../styles/dev/util";
+.msgDetail-body{
+    padding: 10px;
+    .msg-title{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 25px;
+        margin-bottom: 10px;
+        .mutiline-ellipsis(2);
+    }
+    .msg-detail{
+        font-size: 16px;
+        color: rgba(41, 41, 41, 0.8);
+        text-indent: 2em;
+    }
+    .zan{
+        position: relative;
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid rgba(81, 81, 81, 0.62);
+        .ion{
+            font-size: 27px;
+        }
+    }
+    .zan:after{
+        content: "点赞";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        font-size: 13px;
+        font-weight: 600;
+    }
+}

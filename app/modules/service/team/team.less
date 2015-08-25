@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+@import (reference) "../../../styles/dev/util";
+.team-body{
+    padding: 0 10px;
+    .member-list{
+        .menber-item{
+            margin-top: 10px;
+            background-color: white;
+            .member-avatar{
+                height: 160px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .member-post{
+                position: relative;
+                margin-top: 5px;
+                height: 26px;
+                text-align: center;
+                color: white;
+                background-color: rgba(161, 161, 0, 0.8);
+            }
+            .member-post:before{
+                content: "";
+                position: absolute;
+                width: 0px;
+                height: 26px;
+                top: 0;
+                left: -10px;
+                border-left: 8px solid black;
+            }
+            .member-post:after{
+                content: "";
+                position: absolute;
+                width: 0px;
+                height: 26px;
+                top: 0;
+                left: -2px;
+                border-left: 8px solid red;
+            }
+            .member-skill{
+                margin-top: 10px;
+                .mutiline-ellipsis(2);
+            }
+            ul.rating {
+                display: inline-block;
+            }
+            ul.rating li {
+                display: inline-block;
+                border: 0px;
+                background: none;
+                padding: 5px 5px;
+            }
+            ul.rating li i {
+                font-size: 20px;
+            }
+        }
+    }
+    .text-gray{
+        font-size: 15px;
+        color: rgba(103, 103, 103, 0.8);
+    }
+}
