@@ -1,11 +1,12 @@
 angular.module('app.controller')
     .controller('self',self);
 self.$inject = [
-    '$ionicPopover',
+    'Restangular',
     '$state',
     '$scope'
 ];
-function self($ionicPopover,$state,$scope) {
+function self(Restangular,$state,$scope) {
+
 }
 
 

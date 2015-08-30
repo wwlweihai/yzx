@@ -12,7 +12,8 @@ function indexConfig($stateProvider) {
         url: '/index',
         views: {
             'tab-index': {
-                templateUrl: 'modules/index/index.html'
+                templateUrl: 'modules/index/index.html',
+                controller:'index'
             }
         }
     })

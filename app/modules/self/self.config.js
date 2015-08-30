@@ -21,7 +21,8 @@ function selfConfig($stateProvider) {
         url: '/signIn',
         views: {
             'tab-self': {
-                templateUrl: 'modules/self/signIn/signIn.html'
+                templateUrl: 'modules/self/signIn/signIn.html',
+                controller:'signIn'
             }
         }
     })
@@ -29,7 +30,8 @@ function selfConfig($stateProvider) {
         url: '/signUp',
         views: {
             'tab-self': {
-                templateUrl: 'modules/self/signUp/signUp.html'
+                templateUrl: 'modules/self/signUp/signUp.html',
+                controller:'signUp'
             }
         }
     })
@@ -37,7 +39,8 @@ function selfConfig($stateProvider) {
         url: '/information',
         views: {
             'tab-self': {
-                templateUrl: 'modules/self/information/information.html'
+                templateUrl: 'modules/self/information/information.html',
+                controller:'information'
             }
         }
     })
@@ -77,7 +80,8 @@ function selfConfig($stateProvider) {
         url: '/setting',
         views: {
             'tab-self': {
-                templateUrl: 'modules/self/setting/setting.html'
+                templateUrl: 'modules/self/setting/setting.html',
+                controller:'setting'
             }
         }
     })

@@ -3,14 +3,14 @@
         <div class="padding"></div>
         <div class="list">
             <label class="item item-input">
-                <input type="text" placeholder="手机号">
+                <input type="text" placeholder="用户名" ng-model="form.username">
             </label>
             <label class="item item-input">
-                <input type="password" placeholder="密码">
+                <input type="password" placeholder="密码" ng-model="form.password">
             </label>
         </div>
         <div class="" style="padding: 0 10px;">
-            <button class="button button-full button-positive">
+            <button class="button button-full button-positive" ng-click="subSignIn()">
                 登录
             </button>
         </div>
@@ -30,5 +30,7 @@
         <div class="text-center">
             <img src="images/self/wechat.png" alt="" style="width: 47px;"/>
         </div>
+
     </ion-content>
 </ion-view>
+

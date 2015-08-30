@@ -6,6 +6,8 @@
     "fontawesome": "~4.3.0",
     "restangular": "~1.5.1",
     "lodash": "~3.9.3",
-    "ionic-rating": "~0.1.0"
+    "ionic-rating": "~0.1.0",
+    "angular-local-storage": "~0.2.2",
+    "ionic-toast": "~0.1.1"
   }
 }

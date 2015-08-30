@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -8,15 +8,17 @@
         <link rel="stylesheet" href="http://at.alicdn.com/t/font_1438151576_048359.css">
 
         <!-- build:css(.) styles/modules.css -->
-        <link rel="stylesheet" href="bower_components/ionic/css/ionic.css">
+        <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css">
         <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
-        <link rel="stylesheet" href="/bower_components/ionic-rating/ionic-rating.css">
+        <link rel="stylesheet" href="bower_components/ionic-rating/ionic-rating.css">
+        <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
         <!-- endbuild -->
         <!-- build:js(.) scripts/vendor.js -->
-        <script src="bower_components/ionic/js/ionic.bundle.js"></script>
+        <script src="bower_components/ionic/release/js/ionic.bundle.js"></script>
         <script src="bower_components/lodash/lodash.js"></script>
         <script src="bower_components/restangular/dist/restangular.js"></script>
         <script src="bower_components/ionic-rating/ionic-rating.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/index.css">
@@ -36,23 +38,58 @@
         <link rel="stylesheet" href="modules/self/jifen/jifen.css">
         <link rel="stylesheet" href="modules/self/feedback/feedback.css">
 
+        <link rel="stylesheet" href="components/rockswIonicToast/rockswIonicToast.css">
         <!-- endbuild -->
         <!-- build:js scripts/main.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/config.js"></script>
+        <script src="scripts/config/config.js"></script>
+        <script src="scripts/config/router.config.js"></script>
         <script src="modules/tabs.controller.js"></script>
         <script src="modules/index/index.config.js"></script>
+        <script src="modules/index/index.controller.js"></script>
         <script src="modules/style/style.config.js"></script>
         <script src="modules/service/service.config.js"></script>
         <script src="modules/self/self.config.js"></script>
         <script src="modules/self/self.controller.js"></script>
+        <script src="modules/self/signIn/signIn.controller.js"></script>
+        <script src="modules/self/signUp/signUp.controller.js"></script>
+        <script src="modules/self/signUp/signUp.service.js"></script>
+        <script src="modules/self/information/information.controller.js"></script>
+        <script src="modules/self/setting/setting.controller.js"></script>
+
+        <script src="components/rockswIonicToast/rockswIonicToast.js"></script>
         <!-- endbuild -->
     </head>
-    <body>
+    <body ng-cloak>
         <ion-nav-bar class="header-bar bar-assertive" align-title="center">
             <ion-nav-back-button class="button-clear">
             </ion-nav-back-button>
         </ion-nav-bar>
         <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+        <script type="text/ng-template" id="verifyPhoneCodeModal.html">
+            <ion-modal-view>
+                <ion-header-bar class="header-bar bar-stable">
+                    <div class="buttons">
+                        <button class="button button-icon ion-ios-arrow-left" ng-click="closeModal()"></button>
+                    </div>
+                    <h1 class="title">手机验证</h1>
+                </ion-header-bar>
+                <ion-content>
+                    <div class="padding"></div>
+                    <div class="item item-input">
+                        <input type="text" placeholder="请输入您收到的验证码" ng-model="data.verifyCode">
+                        <button class="button button-small" style="margin-right: 10px;" ng-click="getVerifyPhoneCode()" ng-disabled="isSendVerifyCode">
+                            <span ng-show="!isSendVerifyCode">获取验证码</span>
+                            <span ng-show="isSendVerifyCode">60s后获取</span>
+                        </button>
+                    </div>
+                    {{isSend}}
+                    <button class="button button-full button-positive" ng-click="subVerifyCode()">
+                        提交
+                    </button>
+                </ion-content>
+            </ion-modal-view>
+        </script>
     </body>
 </html>
