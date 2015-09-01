@@ -6,7 +6,7 @@ self.$inject = [
     '$scope'
 ];
 function self(Restangular,$state,$scope) {
-
+    console.log('self');
 }
 
 

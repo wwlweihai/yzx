@@ -298,12 +298,12 @@ module.exports = function (grunt) {
         //     }
         //   }
         // },
-        //uglify: {
-        //    options: {
-        //        report: 'min',
-        //        mangle: false
-        //    }
-        //},
+        uglify: {
+            options: {
+                report: 'min',
+                mangle: false
+            }
+        },
         //concat: {
         //   dist: {}
         //},
@@ -326,7 +326,13 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     dot: true,
-                    cwd: 'bower_components/ionic',
+                    cwd: 'bower_components/ionic/release',
+                    src: 'fonts/*.*',
+                    dest: '<%= config.dist %>'
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: 'bower_components/iconfont',
                     src: 'fonts/*.*',
                     dest: '<%= config.dist %>'
                 },  {
@@ -369,7 +375,7 @@ module.exports = function (grunt) {
             dist: [
                 'less',
                 'copy:styles',
-                //'imagemin',
+                'imagemin',
                 'svgmin'
             ]
         }

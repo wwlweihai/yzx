@@ -1,16 +1,16 @@
 <ion-view view-title="登录">
     <ion-content class="view-body has-header signIn-body">
         <div class="padding"></div>
-        <div class="list">
+        <form class="list" name="loginForm">
             <label class="item item-input">
-                <input type="text" placeholder="用户名" ng-model="form.username">
+                <input type="text" placeholder="用户名" ng-model="form.username" required>
             </label>
             <label class="item item-input">
-                <input type="password" placeholder="密码" ng-model="form.password">
+                <input type="password" placeholder="密码" ng-model="form.password" required>
             </label>
-        </div>
+        </form>
         <div class="" style="padding: 0 10px;">
-            <button class="button button-full button-positive" ng-click="subSignIn()">
+            <button class="button button-full button-positive" ng-click="subSignIn(loginForm.$valid)">
                 登录
             </button>
         </div>

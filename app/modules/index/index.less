@@ -3,7 +3,8 @@
 .index-body{
     .slider{
         width: 100%;
-        height: 300px;
+        height: auto;
+        max-height: 300px;
         .slider-item{
             width: 100%;
             height: 100%;
@@ -16,7 +17,7 @@
     .intro-box{
         margin-top: 20px;
         .col{
-            margin-bottom: 20px;
+            //margin-bottom: 20px;
         }
         .intro-item{
             &-logo{
@@ -30,5 +31,12 @@
                 color: rgba(107, 107, 107, 0.71);
             }
         }
+    }
+}
+.no-maring-div{
+    display: block;
+    margin-bottom: -5px;
+    img{
+        width: 100%;
     }
 }

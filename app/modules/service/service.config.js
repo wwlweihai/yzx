@@ -40,15 +40,34 @@ function serviceConfig($stateProvider) {
             }
         }
     })
+    .state('tab.housekeeper', {
+        url: '/housekeeper',
+        views: {
+            'tab-service': {
+                templateUrl: 'modules/service/housekeeper/housekeeper.html'
+            }
+        }
+    })
     .state('tab.quote', {
         url: '/quote',
         views: {
             'tab-service': {
-                templateUrl: 'modules/service/quote/quote.html'
+                templateUrl: 'modules/service/quote/quote.html',
+                controller:'quote'
             }
         }
     })
-
-
+    .state('tab.quoteResult', {
+        url: '/quoteResult',
+        params:{
+            quotePrice:"10000"
+        },
+        views: {
+            'tab-service': {
+                templateUrl: 'modules/service/quote/quoteResult/quoteResult.html',
+                controller:'quoteResult'
+            }
+        }
+    })
     ;
 };

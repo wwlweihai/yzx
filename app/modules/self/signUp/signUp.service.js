@@ -9,9 +9,12 @@ signUpService.$inject = [
 function signUpService(Restangular){
     var header = {"Content-Type":"application/json"};
     var signUpReq = Restangular.one("users");
+    var verifyPhoneCodeReq = Restangular.one("verifyMobilePhone");
 
     var service = {
-        subSignUp:subSignUp
+        subSignUp:subSignUp,
+        subVerifyCode:subVerifyCode,
+        deleteUser:deleteUser
     };
     return service;
 
@@ -26,5 +29,25 @@ function signUpService(Restangular){
             //    rockswIonicToast.show('手机号码已经注册!');
             //}
         });
-    }
+    };
+    function subVerifyCode(phoneCode,successCall,errorCall){
+        verifyPhoneCodeReq.post(phoneCode,null,null,header).then(function(data){
+            successCall(data)
+        },function(error){
+            errorCall(error);
+        });
+    };
+    function deleteUser(userId,sessionHeader,successCall,errorCall){
+        var deleteReq = Restangular.one("users",userId);
+        //deleteReq.post(null,null,null,sessionHeader).then(function(data){
+        //    successCall(data)
+        //},function(error){
+        //    errorCall(error);
+        //});
+        deleteReq.remove(null,sessionHeader).then(function(data){
+            successCall(data)
+        },function(error){
+            errorCall(error);
+        });
+    };
 };

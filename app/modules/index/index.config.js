@@ -17,6 +17,22 @@ function indexConfig($stateProvider) {
             }
         }
     })
+    .state('tab.event', {
+        url: '/event',
+        views: {
+            'tab-index': {
+                templateUrl: 'modules/index/event/event.html'
+            }
+        }
+    })
+    .state('tab.eventDetail', {
+        url: '/eventDetail',
+        views: {
+            'tab-index': {
+                templateUrl: 'modules/index/event/eventDetail/eventDetail.html'
+            }
+        }
+    })
     .state('tab.msg', {
         url: '/msg',
         views: {

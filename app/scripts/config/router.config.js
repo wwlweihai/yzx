@@ -8,7 +8,7 @@ angular.module('app.config')
         routeConfig
 ]);
 function routeConfig($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/tab/self');
+    $urlRouterProvider.otherwise('/tab/index');
     $stateProvider
     .state('tab', {
         cache: false,

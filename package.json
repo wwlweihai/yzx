@@ -62,5 +62,14 @@
   "bugs": {
     "url": "https://github.com/shanghaicomeoncloud/forbes/issues"
   },
-  "homepage": "https://github.com/shanghaicomeoncloud/forbes"
+  "homepage": "https://github.com/shanghaicomeoncloud/forbes",
+  "cordovaPlugins": [
+    {
+      "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
+      "id": "cordova-plugin-whitelist"
+    }
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

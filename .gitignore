@@ -2,4 +2,7 @@
 .tmp
 bower_components
 node_modules
+platforms
+plugins
+resources
 test

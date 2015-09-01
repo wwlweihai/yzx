@@ -6,27 +6,28 @@ signUp.$inject = [
     'Restangular',
     '$ionicModal',
     '$timeout',
+    '$rootScope',
     '$state',
     '$scope'
 ];
-function signUp(signUpService,rockswIonicToast,Restangular,$ionicModal,$timeout,$state,$scope) {
-    var header = {"Content-Type":"application/json"};
-    var verifyPhoneReq = Restangular.one("requestMobilePhoneVerify");
-    var verifyPhoneCodeReq = Restangular.one("verifyMobilePhone");
+function signUp(signUpService,rockswIonicToast,Restangular,$ionicModal,$timeout,$rootScope,$state,$scope) {
+    var globals;
     var verifyCodeBtnTout;
     var timeInterval = 60 * 1000;
+
     $scope.form = {};
-    $scope.form.mobilePhoneNumber = "15216311980";
+    $scope.form.mobilePhoneNumber = "";
     $scope.data = {};
     $scope.isSendVerifyCode = false;
-    $scope.getVerifyPhoneCode = getVerifyPhoneCode;
     //提交注册
     $scope.subSignUp = subSignUp;
     //提交验证码
     $scope.subVerifyCode = subVerifyCode;
     $scope.closeModal = closeModal;
+    //取消验证
+    $scope.cancelVerifyPhone = cancelVerifyPhone;
     //验证码框
-    $ionicModal.fromTemplateUrl('verifyPhoneCodeModal.html', {
+    $ionicModal.fromTemplateUrl('modules/self/signUp/verifyPhoneCodeModal.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function(modal) {
@@ -34,33 +35,33 @@ function signUp(signUpService,rockswIonicToast,Restangular,$ionicModal,$timeout,
     });
 
     function subSignUp(){
-        $scope.verifyPhoneCodeModal.show();
-        $scope.isSendVerifyCode = true;
-        verifyCodeBtnTout = $timeout(function(){
-            $scope.isSendVerifyCode = false;
-        }, timeInterval);
+        //signUpSuc()("123");
         //注册请求
-        //signUpService.subSignUp($scope.form,signUpSuc(),signUpErr());
+        signUpService.subSignUp($scope.form,signUpSuc(),signUpErr());
 
-        //登录成功处理方法
+        //注册成功处理方法
         function signUpSuc(){
             return function(data){
                 console.log(data);
                 if(data){
-                    rockswIonicToast.show('注册成功');
-                    var globals = {
+                    //rockswIonicToast.show('注册成功');
+                    globals = {
                         currentUser: {
                             id:data.objectId,
                             username:data.username,
                             sessionToken:data.sessionToken
                         }
                     };
-                    $state.go('tab.self');
-                    $rootScope.$broadcast('userSignIn', globals);
+                    $scope.isSendVerifyCode = true;
+                    $scope.verifyPhoneCodeModal.show();
+                    verifyCodeBtnTout = $timeout(function(){
+                        $scope.isSendVerifyCode = false;
+                    }, timeInterval);
+
                 }
             }
         };
-        //登录失败处理方法
+        //注册失败处理方法
         function signUpErr(){
             return function(error){
                 console.log(error.data);
@@ -71,38 +72,56 @@ function signUp(signUpService,rockswIonicToast,Restangular,$ionicModal,$timeout,
             }
         };
     }
-    function closeModal(){
-        cancelVerifyCodeBtnTout();
-        $scope.verifyPhoneCodeModal.hide();
-    }
     function subVerifyCode(){
         var phoneCode = $scope.data.verifyCode;
         console.log(phoneCode);
-        closeModal();
-        //verifyPhoneCodeReq.post(phoneCode,null,null,header).then(function(data){
-        //    console.log(data);
-        //});
+        signUpService.subVerifyCode(phoneCode,verifyCodeSuc(),verifyCodeErr());
+        //verifyCodeSuc()("123");
+        function verifyCodeSuc(){
+            return function(data){
+                console.log(data);
+                if(data){
+                    rockswIonicToast.show('注册成功');
+                    $rootScope.$broadcast('userSignIn', globals);
+                    closeModal();
+                    $state.go('tab.self',null,{reload:true});
+                }
+            }
+        };
+        function verifyCodeErr(){
+            return function(error){
+                if(errorCode == 603){
+                    rockswIonicToast.show('验证码错误!');
+                }
+            }
+        };
     }
-    function getVerifyPhoneCode(phoneNum){
-        var phoneNum = $scope.form.mobilePhoneNumber;
-        console.log(phoneNum);
-        //verifyPhoneReq.post(null,{"mobilePhoneNumber": phoneNum},null,header).then(function(data){
-        //    if(data){
-        //        console.log("验证成功");
-        //    }
-        //});
+    function cancelVerifyPhone(){
+        //closeModal();
+        var sessionHeader = {
+            "X-AVOSCloud-Session-Token":globals.currentUser.sessionToken
+        };
+        //取消验证成功处理方法
+        signUpService.deleteUser(globals.currentUser.id,sessionHeader,cancelSuc(),cancelErr());
+        function cancelSuc(){
+            return function(data){
+                rockswIonicToast.show('取消验证成功,请重新注册!');
+                closeModal();
+            }
+        };
+        //取消验证失败处理方法
+        function cancelErr(){
+            return function(error){
+                rockswIonicToast.show('取消验证失败,请联系管理员注册!');
+            }
+        };
     };
-    //function reqVerifyPhoneCode(){
-    //    var phoneNum = $scope.form.mobilePhoneNumber;
-    //    console.log(phoneNum);
-    //    if(phoneNum){
-    //        getVerifyPhoneCode(phoneNum);
-    //    }else{
-    //        rockswIonicToast.show("请输入一个正确的手机号码");
-    //    }
-    //};
+    function closeModal(){
+        cancelVerifyCodeBtnTout();
+        $scope.verifyPhoneCodeModal.hide();
+    };
     function cancelVerifyCodeBtnTout(){
-        console.log("cancelVerifyCodeBtnTout    ");
+        console.log("cancelVerifyCodeBtnTout");
         $timeout.cancel(verifyCodeBtnTout);
     };
 }

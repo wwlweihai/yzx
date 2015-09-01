@@ -1,0 +1,16 @@
+<ion-view view-title="智能报价">
+    <ion-content class="view-body has-header">
+        <div class="padding"></div>
+        <div class="">
+            <div class="item " >
+                预估价
+                <span class="assertive">{{ quotePrice | currency : "￥" : 2}}</span>
+            </div>
+        </div>
+        <div class="padding" style="color: silver">
+            温馨提示,以上价格仅供参考
+        </div>
+        <div style="margin-bottom: 150px;"></div>
+        <yzx-free-experience></yzx-free-experience>
+    </ion-content>
+</ion-view>
