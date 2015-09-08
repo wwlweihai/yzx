@@ -3,13 +3,17 @@ angular.module('app.controller')
 index.$inject = [
     'rockswIonicToast',
     'Restangular',
-    '$state',
+    '$rootScope',
     '$scope'
 ];
-function index(rockswIonicToast,Restangular,$state,$scope) {
+function index(rockswIonicToast,Restangular,$rootScope,$scope) {
     $scope.signToday = signToday;
     function signToday(){
-        rockswIonicToast.show('签到成功');
+        if($rootScope.isLogin){
+            rockswIonicToast.show('签到成功');
+        }else{
+            rockswIonicToast.show('请登录');
+        }
     }
 }
 

@@ -29,6 +29,6 @@
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <access origin="*"/>
-    <allow-intent href="*" />
-    <allow-navigation href="*" />
+  <allow-intent href="*"/>
+  <allow-navigation href="*"/>
 </widget>

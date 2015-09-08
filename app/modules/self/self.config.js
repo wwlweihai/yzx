@@ -35,6 +35,15 @@ function selfConfig($stateProvider) {
             }
         }
     })
+    .state('tab.status', {
+        url: '/status',
+        views: {
+            'tab-self': {
+                templateUrl: 'modules/self/status/status.html',
+                controller:'status'
+            }
+        }
+    })
     .state('tab.information', {
         url: '/information',
         views: {

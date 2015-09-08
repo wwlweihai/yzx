@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
         <title>易装修</title>
         <link rel="shortcut icon" href="/favicon.ico">
         <link rel="stylesheet" href="http://at.alicdn.com/t/font_1438151576_048359.css">
@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="modules/index/msg/msg.css">
         <link rel="stylesheet" href="modules/index/msgDetail/msgDetail.css">
         <link rel="stylesheet" href="modules/style/style.css">
+        <link rel="stylesheet" href="modules/style/styleDetail/styleDetail.css">
         <link rel="stylesheet" href="modules/service/service.css">
         <link rel="stylesheet" href="modules/service/team/team.css">
         <link rel="stylesheet" href="modules/service/checkOut/checkOut.css">
@@ -41,27 +42,34 @@
         <link rel="stylesheet" href="modules/self/collection/collection.css">
         <link rel="stylesheet" href="modules/self/jifen/jifen.css">
         <link rel="stylesheet" href="modules/self/feedback/feedback.css">
+        <link rel="stylesheet" href="modules/self/status/status.css">
 
         <link rel="stylesheet" href="components/rockswIonicToast/rockswIonicToast.css">
         <!-- endbuild -->
+
+        <!--<script src="scripts/run/upgrade.run.js"></script>-->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/config/config.js"></script>
         <script src="scripts/config/router.config.js"></script>
-        <script src="scripts/run/push.run.js"></script>
-
+        <script src="scripts/run/exit.run.js"></script>
+        <script src="scripts/run/sign.run.js"></script>
         <script src="modules/components/yzxFreeExperience/yzxFreeExperience.directive.js"></script>
         <script src="modules/components/yzxFreeExperience/yzxFreeExperience.controller.js"></script>
 
         <script src="modules/tabs.controller.js"></script>
         <script src="modules/index/index.config.js"></script>
         <script src="modules/index/index.controller.js"></script>
+
         <script src="modules/style/style.config.js"></script>
+        <script src="modules/style/style.controller.js"></script>
+        <script src="modules/style/styleDetail/styleDetail.controller.js"></script>
 
         <script src="modules/service/service.config.js"></script>
         <script src="modules/service/quote/quote.controller.js"></script>
         <script src="modules/service/quote/quoteResult/quoteResult.controller.js"></script>
+        <script src="modules/service/superior/superior.controller.js"></script>
 
         <script src="modules/self/self.config.js"></script>
         <script src="modules/self/self.controller.js"></script>
@@ -70,8 +78,15 @@
         <script src="modules/self/signUp/signUp.service.js"></script>
         <script src="modules/self/information/information.controller.js"></script>
         <script src="modules/self/setting/setting.controller.js"></script>
+        <script src="modules/self/status/status.controller.js"></script>
 
         <script src="components/rockswIonicToast/rockswIonicToast.js"></script>
+
+        <script src="scripts/object/UserInfo.object.js"></script>
+        <script src="scripts/object/Style.object.js"></script>
+        <script src="scripts/object/Project.object.js"></script>
+        <script src="scripts/object/Team.object.js"></script>
+        <script src="scripts/service/data.service.js"></script>
         <!-- endbuild -->
     </head>
     <body ng-cloak>

@@ -1,167 +1,177 @@
 <ion-view view-title="实时监理">
     <ion-content class="view-body has-header superior-body">
-        <div class="intro">
-            <div class="intro-bg-img">
-                <img src="http://placehold.it/350x140">
+        <div class="noProjectTip" ng-hide="hasProject">
+            <div class="text-center">
+                <i class="icon ion-compose" style="font-size: 70px;"></i>
             </div>
-            <div class="style-name">
-                地中海风格
-            </div>
-            <div class="room-size">
-                100 ㎡ /两室;
-            </div>
-            <div class="deadline">
-                工期:2015.8.1--2015.10.1
-            </div>
+            <div class="text-center">您还没有装修内容哦~~</div>
+            <div class="text-center">如果您的项目已经开工请联系项目经理</div>
         </div>
-        <div class="service-team">
-            <div class="service-team-text">
-               服务团队
-            </div>
-            <div class="row">
-                <div class="col col-33 team-item">
-                    <div class="row">
-                        <div class="col col-34">
-                            <div class="team-avatar">
-                                <img src="http://placehold.it/30x30">
-                            </div>
-                        </div>
-                        <div class="col col-67">
-                            <div class="team-name">
-                                家装顾问
-                            </div>
-                            <div class="team-role">
-                                家装顾问
-                            </div>
-                        </div>
-                    </div>
+        <div class="" ng-show="hasProject">
+            <div class="intro">
+                <div class="intro-bg-img">
+                    <img ng-src="{{project.styleAvatar}}">
                 </div>
-                <div class="col col-33 team-item">
-                    <div class="row">
-                        <div class="col col-34">
-                            <div class="team-avatar">
-                                <img src="http://placehold.it/30x30">
-                            </div>
-                        </div>
-                        <div class="col col-67">
-                            <div class="team-name">
-                                家装顾问
-                            </div>
-                            <div class="team-role">
-                                家装顾问
-                            </div>
-                        </div>
-                    </div>
+                <div class="style-name op-text-bg">
+                    {{project.styleName}}
                 </div>
-                <div class="col col-33 team-item">
-                    <div class="row">
-                        <div class="col col-34">
-                            <div class="team-avatar">
-                                <img src="http://placehold.it/30x30">
-                            </div>
-                        </div>
-                        <div class="col col-67">
-                            <div class="team-name">
-                                家装顾问
-                            </div>
-                            <div class="team-role">
-                                家装顾问
-                            </div>
-                        </div>
-                    </div>
+                <div class="room-size op-text-bg">
+                    {{project.roomInfo}}
+                </div>
+                <div class="deadline op-text-bg">
+                    工期:{{project.startDate | date:'yyyy-MM-dd'}} -- {{project.endDate | date:'yyyy-MM-dd'}}
                 </div>
             </div>
-        </div>
-        <div class="period-brief-list">
-            <div class="row">
-                <div class="col col-33 period-item text-center current-period">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-ios-calculator icon"></i>
+            <div class="service-team">
+                <div class="service-team-text">
+                    服务团队
+                </div>
+                <div class="row">
+                    <div class="col col-33 team-item">
+                        <div class="row">
+                            <div class="col col-34">
+                                <div class="team-avatar">
+                                    <img ng-src="{{jzTeam.avatar}}">
+                                </div>
+                            </div>
+                            <div class="col col-67">
+                                <div class="team-name">
+                                    {{jzTeam.name}}
+                                </div>
+                                <div class="team-role">
+                                    家装顾问
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="period-title">
+                    <div class="col col-33 team-item">
+                        <div class="row">
+                            <div class="col col-34">
+                                <div class="team-avatar">
+                                    <img ng-src="{{sjTeam.avatar}}">
+                                </div>
+                            </div>
+                            <div class="col col-67">
+                                <div class="team-name">
+                                    {{sjTeam.name}}
+                                </div>
+                                <div class="team-role">
+                                    设计师
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-33 team-item">
+                        <div class="row">
+                            <div class="col col-34">
+                                <div class="team-avatar">
+                                    <img ng-src="{{jlTeam.avatar}}">
+                                </div>
+                            </div>
+                            <div class="col col-67">
+                                <div class="team-name">
+                                    {{jlTeam.name}}
+                                </div>
+                                <div class="team-role">
+                                    工程监理
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="period-brief-list">
+                <div class="row">
+                    <div class="col col-33 period-item text-center current-period">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-ios-calculator icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            测量设计
+                        </div>
+                    </div>
+                    <div class="col col-33 period-item text-center">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-waterdrop icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            水电阶段
+                        </div>
+                    </div>
+                    <div class="col col-33 period-item text-center">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-trash-a icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            泥水阶段
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-33 period-item text-center">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-paintbucket icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            油漆阶段
+                        </div>
+                    </div>
+                    <div class="col col-33 period-item text-center">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-compose icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            竣工阶段
+                        </div>
+                    </div>
+                    <div class="col col-33 period-item text-center">
+                        <div class="period-item-avatar-box">
+                            <div class="period-item-avatar">
+                                <i class="ion-wand icon"></i>
+                            </div>
+                        </div>
+                        <div class="period-title">
+                            软装配饰
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="period-detail-list">
+                <div class="period-detail-item">
+                    <div class="title">
                         测量设计
                     </div>
-                </div>
-                <div class="col col-33 period-item text-center">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-waterdrop icon"></i>
+                    <div class="date">
+                        2015.7.20
+                    </div>
+                    <div class="imgs row row-wrap">
+                        <div class="col col-33 text-center">
+                            <img src="http://placehold.it/80x80">
+                        </div>
+                        <div class="col col-33 text-center">
+                            <img src="http://placehold.it/80x80">
+                        </div>
+                        <div class="col col-33 text-center">
+                            <img src="http://placehold.it/80x80">
+                        </div>
+                        <div class="col col-33 text-center">
+                            <img src="http://placehold.it/80x80">
                         </div>
                     </div>
-                    <div class="period-title">
-                        水电阶段
-                    </div>
                 </div>
-                <div class="col col-33 period-item text-center">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-trash-a icon"></i>
-                        </div>
-                    </div>
-                    <div class="period-title">
-                        泥水阶段
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-33 period-item text-center">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-paintbucket icon"></i>
-                        </div>
-                    </div>
-                    <div class="period-title">
-                        油漆阶段
-                    </div>
-                </div>
-                <div class="col col-33 period-item text-center">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-compose icon"></i>
-                        </div>
-                    </div>
-                    <div class="period-title">
-                        竣工阶段
-                    </div>
-                </div>
-                <div class="col col-33 period-item text-center">
-                    <div class="period-item-avatar-box">
-                        <div class="period-item-avatar">
-                            <i class="ion-wand icon"></i>
-                        </div>
-                    </div>
-                    <div class="period-title">
-                        软装配饰
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="period-detail-list">
-            <div class="period-detail-item">
-                <div class="title">
-                    测量设计
-                </div>
-                <div class="date">
-                    2015.7.20
-                </div>
-                <div class="imgs row row-wrap">
-                    <div class="col col-33 text-center">
-                        <img src="http://placehold.it/80x80">
-                    </div>
-                    <div class="col col-33 text-center">
-                        <img src="http://placehold.it/80x80">
-                    </div>
-                    <div class="col col-33 text-center">
-                        <img src="http://placehold.it/80x80">
-                    </div>
-                    <div class="col col-33 text-center">
-                        <img src="http://placehold.it/80x80">
-                    </div>
-                </div>
-            </div>
 
+            </div>
         </div>
+
     </ion-content>
 </ion-view>

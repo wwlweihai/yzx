@@ -1,7 +1,5 @@
 angular.module('app.directive')
-.directive('yzxFreeExperience',yzxFreeExperience);
-
-function yzxFreeExperience() {
+.directive('yzxFreeExperience', function() {
     var directive = {
         link: link,
         templateUrl: 'modules/components/yzxFreeExperience/yzxFreeExperience.html',
@@ -16,6 +14,5 @@ function yzxFreeExperience() {
     function link(scope, element, attrs) {
 
     }
-}
-
+});
 

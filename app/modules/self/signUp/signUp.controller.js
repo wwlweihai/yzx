@@ -79,12 +79,12 @@ function signUp(signUpService,rockswIonicToast,Restangular,$ionicModal,$timeout,
         //verifyCodeSuc()("123");
         function verifyCodeSuc(){
             return function(data){
-                console.log(data);
+                console.log("subVerifyCode return"+data);
                 if(data){
                     rockswIonicToast.show('注册成功');
                     $rootScope.$broadcast('userSignIn', globals);
                     closeModal();
-                    $state.go('tab.self',null,{reload:true});
+                    $state.go('tab.status');
                 }
             }
         };

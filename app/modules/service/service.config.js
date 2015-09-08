@@ -28,7 +28,8 @@ function serviceConfig($stateProvider) {
         url: '/superior',
         views: {
             'tab-service': {
-                templateUrl: 'modules/service/superior/superior.html'
+                templateUrl: 'modules/service/superior/superior.html',
+                controller:"superior"
             }
         }
     })

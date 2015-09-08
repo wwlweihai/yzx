@@ -67,6 +67,10 @@
     {
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
       "id": "cordova-plugin-whitelist"
+    },
+    {
+      "locator": "https://github.com/driftyco/ionic-plugins-deploy",
+      "id": "ionic-plugin-deploy"
     }
   ],
   "cordovaPlatforms": [

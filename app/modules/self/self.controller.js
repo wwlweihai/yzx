@@ -1,12 +1,13 @@
 angular.module('app.controller')
     .controller('self',self);
 self.$inject = [
-    'Restangular',
+    'dataService',
     '$state',
+    '$rootScope',
     '$scope'
 ];
-function self(Restangular,$state,$scope) {
-    console.log('self');
+function self(dataService,$state,$rootScope,$scope) {
+    
 }
 
 

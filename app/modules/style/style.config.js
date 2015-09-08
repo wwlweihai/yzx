@@ -12,15 +12,20 @@ function styleConfig($stateProvider) {
         url: '/style',
         views: {
             'tab-style': {
-                templateUrl: 'modules/style/style.html'
+                templateUrl: 'modules/style/style.html',
+                controller:'style'
             }
         }
     })
     .state('tab.styleDetail', {
         url: '/styleDetail',
+        params:{
+            id:1
+        },
         views: {
             'tab-style': {
-                templateUrl: 'modules/style/styleDetail/styleDetail.html'
+                templateUrl: 'modules/style/styleDetail/styleDetail.html',
+                controller:'styleDetail'
             }
         }
     })
